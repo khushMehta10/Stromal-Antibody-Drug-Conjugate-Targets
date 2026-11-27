@@ -1,0 +1,28 @@
+---
+title: "GSE306201 integrated Seurat object"
+output: html_notebook
+---
+
+```{r}
+library(Seurat)
+```
+```{r}
+# Integrated Seurat object for GSE306201, placed in this folder
+seurat_obj = readRDS("Integrated_Dataset_raw_seurobj.rds")
+```
+
+```{r}
+print(seurat_obj) 
+print(paste("Number of cells:", ncol(seurat_obj))) 
+print(paste("Number of genes:", nrow(seurat_obj)))  
+ # Check metadata columns 
+print("Metadata columns:") 
+print(colnames(seurat_obj@meta.data)) 
+  # Check cell types 
+print("Cell type distribution:") 
+print(table(seurat_obj@meta.data$major_celltype)) 
+  # Check assays
+print("Available assays:") 
+print(names(seurat_obj@assays))
+```
+

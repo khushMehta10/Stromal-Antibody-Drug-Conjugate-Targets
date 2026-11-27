@@ -1,0 +1,40 @@
+# Only code and a few summary figures are tracked. Everything else in this
+# folder (about 65 GB of single-cell and bulk data, intermediate results and
+# old versions) stays on the local disk. README.md says how to get the data.
+#
+# How the rules work: ignore every file, keep looking inside folders,
+# re-include code files, then shut out folders that hold data or old versions.
+
+# Ignore every file ...
+*
+# ... but keep looking inside folders, so the rules below can re-include files.
+!*/
+
+# Code and docs
+!*.py
+!*.R
+!*.r
+!*.Rmd
+!*.Rproj
+!*.sh
+!*.ipynb
+!/.gitignore
+!/README.md
+!/README_PIPELINE.md
+!/requirements.txt
+# summary figures shown in README.md
+!/figures/*.png
+
+# Data, results and old versions: never tracked, even where they contain code
+/GSE*/*/
+/TCGA_Data/*/
+/Metabric/*/
+/MET500/*/
+/PRIMARY/*/
+/PRIMARY_OLD_backup/
+/composite/
+/JSHS_submission/
+/common/cache/
+/ARCHIVE/
+__pycache__/
+.ipynb_checkpoints/
